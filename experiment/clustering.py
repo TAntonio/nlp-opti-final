@@ -10,6 +10,8 @@ import sys, os, subprocess, math
 def main():
     #develop arrays of dates and feature vectors
     featurestrings=open("../data/featurevectors","r+").readlines()
+    subprocess.call("touch ../data/journal".split())
+    journal=open("../data/journal","w+")
     dates=[]
     vecs=[]
     for feat in featurestrings:
@@ -128,7 +130,7 @@ def main():
 
     for i in range(len(dates)):
         #print clusters[i]
-        print dates[i]+": today I felt "+clusterfeels[clusters[i]]+"."
+        journal.write(dates[i]+": today I felt "+clusterfeels[clusters[i]]+".\n")
 
 if __name__=="__main__":
     main()
