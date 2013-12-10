@@ -65,7 +65,8 @@ def main():
                 vec[20]+=1
             #check to see if it's a swearword
             for swear in swearlex:
-                if swear.count(spl) > 0:
+                #print swear
+                if spl.count(swear.strip()) > 0:
                     vec[21]+=1
                     break
         feats.write(str(vec)+"\n")
